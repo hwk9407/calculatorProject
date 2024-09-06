@@ -47,11 +47,19 @@ public class Calculator {
     }
 
     // getter, setter
-    public double getFirstResult () {
-        return resultHistory.getFirst();
+    public double getData (int index) {
+        return resultHistory.get(index);
     }
 
-    public void setFirstResult (double result) {
-        resultHistory.addFirst(result);
+    public ArrayList<Double> getAllData() {
+        return this.resultHistory;
+    }
+
+    public void setData(int index, double value) {
+        resultHistory.set(index, value);
+    }
+
+    public void removeFirstData() {
+        resultHistory.removeFirst();
     }
 }

@@ -75,7 +75,17 @@ public class App {
             String answer = sc.nextLine();
 
             if (answer.equalsIgnoreCase("exit")) {
-                System.out.println("처음으로 저장된 결과값 출력 : " + cal.getFirstResult());
+                System.out.println("모든 저장 결과값 : " + cal.getAllData());
+                System.out.println("처음으로 저장된 결과값 출력 : " + cal.getData(0));
+
+                if (cal.getAllData().size() >= 2) {
+                    System.out.println("저장된 결과값 갯수 : " + cal.getAllData().size());
+                    cal.setData(1, 500);
+                    System.out.println("2번째로 저장된 결과값을 500으로 변경 : " + cal.getAllData());
+                }
+
+                cal.removeFirstData();
+                System.out.println("removeFirstResult 메서드 호출 후 저장 값 출력 : " + cal.getAllData());
                 return;
             }
         }
