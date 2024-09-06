@@ -12,4 +12,14 @@ public enum OperatorType {
     public char getSymbol() {
         return symbol;
     }
+
+    public static OperatorType getOperatorType(char symbol) {
+        switch (symbol) {
+            case '+': return PLUS;
+            case '-': return MINUS;
+            case '*': return MULTIPLY;
+            case '/': return DIVIDE;
+            default: return null;
+        }
+    }
 }
