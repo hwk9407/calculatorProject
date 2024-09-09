@@ -14,20 +14,16 @@ public class App {
 //        Calculator cal = new Calculator();
         ArithmeticCalculator aCal = new ArithmeticCalculator();
 
-        // 2개의 양의 정수 0포함 입력 받기
+        // 실수 입력
         while (true) {
-            int a, b;
+            double a, b;
 
             while (true) {
                 try {
-                    System.out.println("첫 번째 0 또는 양의 정수를 입력해주세요.");
-                    a = sc.nextInt();
-                    if (a < 0) {
-                        System.out.println("음수를 입력 하셨습니다.");
-                        continue;
-                    }
+                    System.out.println("첫 번째 숫자를 입력해주세요.");
+                    a = sc.nextDouble();
                     break;
-                } catch (InputMismatchException e) { // int가 아닐 때
+                } catch (InputMismatchException e) { // 입력값이 double형이 아닐 때
                     System.out.println("숫자를 입력해주세요!");
                     sc.nextLine();  // 입력 버퍼 비우기
                 }
@@ -35,14 +31,10 @@ public class App {
 
             while (true) {
                 try {
-                    System.out.println("두 번째 0 또는 양의 정수를 입력해주세요.");
+                    System.out.println("두 번째 숫자를 입력해주세요.");
                     b = sc.nextInt();
-                    if (b < 0) {
-                        System.out.println("음수를 입력 하셨습니다.");
-                        continue;
-                    }
                     break;
-                } catch (InputMismatchException e) { // int가 아닐 때
+                } catch (InputMismatchException e) { // 입력값이 double형이 아닐 때
                     System.out.println("숫자를 입력해주세요!");
                     sc.nextLine();  // 입력 버퍼 비우기
                 }
