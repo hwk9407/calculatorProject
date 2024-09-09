@@ -1,16 +1,20 @@
 package calculator.arithmetic;
 
 import calculator.exception.DivisionByZeroException;
+import calculator.storage.SaveCalculator;
 
 import java.util.ArrayList;
 
 public abstract class BasicCalculator {
-    private static ArrayList<Double> resultHistory;
+    private ArrayList<Double> resultHistory;
 
-
+    BasicCalculator(SaveCalculator resultHistory) {
+        this.resultHistory = resultHistory.getResultHistory();
+    }
+/*
     public static void initializeResult() {
         resultHistory = new ArrayList<>();
-    }
+    }*/
     public abstract double operate(double a, double b) throws DivisionByZeroException;
 
     // getter, setter

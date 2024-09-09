@@ -3,14 +3,17 @@ package calculator;
 import calculator.arithmetic.*;
 import calculator.exception.DivisionByZeroException;
 import calculator.exception.InvalidOperatorException;
+import calculator.storage.SaveCalculator;
+
 import java.util.stream.Collectors;
 
 public class ArithmeticCalculator {
     public BasicCalculator calculator;
+    private SaveCalculator saveCalculator;
 
     // 생성자
     public ArithmeticCalculator() {
-        BasicCalculator.initializeResult();
+        this.saveCalculator = new SaveCalculator();
     }
 
     public void setOperator(char opType) throws InvalidOperatorException {
@@ -18,16 +21,16 @@ public class ArithmeticCalculator {
         if (type != null) {
             switch (type) {
                 case OperatorType.PLUS:
-                    calculator = new Addition();
+                    calculator = new Addition(saveCalculator);
                     break;
                 case OperatorType.MINUS:
-                    calculator = new Subtraction();
+                    calculator = new Subtraction(saveCalculator);
                     break;
                 case OperatorType.MULTIPLY:
-                    calculator = new Multiplication();
+                    calculator = new Multiplication(saveCalculator);
                     break;
                 case OperatorType.DIVIDE:
-                    calculator = new Division();
+                    calculator = new Division(saveCalculator);
                     break;
             }
         } else {
