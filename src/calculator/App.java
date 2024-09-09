@@ -32,7 +32,7 @@ public class App {
             while (true) {
                 try {
                     System.out.println("두 번째 숫자를 입력해주세요.");
-                    b = sc.nextInt();
+                    b = sc.nextDouble();
                     break;
                 } catch (InputMismatchException e) { // 입력값이 double형이 아닐 때
                     System.out.println("숫자를 입력해주세요!");
