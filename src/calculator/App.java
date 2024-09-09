@@ -86,7 +86,7 @@ public class App {
                 BasicCalculator cal = aCal.calculator;
 
                 if (cal.getAllData().isEmpty()) return;
-
+                /*
                 System.out.println("모든 저장 결과값 : " + cal.getAllData());
                 System.out.println("처음으로 저장된 결과값 출력 : " + cal.getData(0));
 
@@ -98,6 +98,21 @@ public class App {
 
                 cal.removeFirstData();
                 System.out.println("removeFirstResult 메서드 호출 후 저장 값 출력 : " + cal.getAllData());
+                */
+
+                // 저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력
+                while (true) {
+                    try {
+                        System.out.println("저장된 결과랑 크기를 비교할 숫자를 입력해주세요.");
+                        double compareVal = sc.nextDouble();
+                        aCal.largerResults(compareVal);
+                        break;
+                    } catch (InputMismatchException e) { // 입력값이 double형이 아닐 때
+                        System.out.println("숫자를 입력해주세요!");
+                        sc.nextLine();  // 입력 버퍼 비우기
+                    }
+                }
+
                 return;
             }
         }
