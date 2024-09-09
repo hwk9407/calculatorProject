@@ -1,37 +1,43 @@
 package calculator;
 
-public class ArithmeticCalculator extends Calculator {
+import calculator.arithmetic.*;
+import calculator.exception.DivisionByZeroException;
+import calculator.exception.InvalidOperatorException;
 
-    // 제네릭 메서드로 오버로딩
-    public <T extends Number> double calculate(T a, T b, char opType) {
-        double result = 0;
+public class ArithmeticCalculator {
+    private BasicCalculator calculator;
+
+    // 생성자
+    public ArithmeticCalculator(char opType) throws InvalidOperatorException {
         OperatorType type = OperatorType.getOperatorType(opType);
         if (type != null) {
             switch (type) {
                 case OperatorType.PLUS:
-                    result = a.doubleValue() + b.doubleValue();
+                    calculator = new Addition();
                     break;
                 case OperatorType.MINUS:
-                    result = a.doubleValue() - b.doubleValue();
+                    calculator = new Subtraction();
                     break;
                 case OperatorType.MULTIPLY:
-                    result = a.doubleValue() * b.doubleValue();
+                    calculator = new Multiplication();
                     break;
                 case OperatorType.DIVIDE:
-                    if (b.doubleValue() == 0) {
-                        System.out.println("0으로 나눌 수 없습니다!");
-                        break;
-                    }
-                    result = a.doubleValue() / b.doubleValue();
+                    calculator = new Division();
                     break;
-                default:
-                    System.out.println("알 수 없는 연산자입니다.");
             }
-        }/*
+        }
         else {
-            throw new IllegalStateException("Unexpected value: " + opType);
-        }*/
-        return result;
+            throw new InvalidOperatorException("연산 기호를 잘못 입력하였습니다.");
+        }
+
+    }
+
+    // 제네릭 메서드로 오버로딩
+    public <T extends Number> double calculate(T a, T b) throws DivisionByZeroException {
+        double firstNum = Double.parseDouble(a.toString());
+        double secondNum = Double.parseDouble(b.toString());
+
+        return calculator.operate(firstNum, secondNum);
     }
 
 }

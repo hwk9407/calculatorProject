@@ -14,7 +14,7 @@ public class Calculator {
         this.resultHistory = new ArrayList<>();
     }
 
-    public double calculate(int a, int b, char operator) {
+    public double calculate(double a, double b, char operator) {
         double result;
 
         if (operator == '+') {

@@ -1,4 +1,4 @@
-package calculator;
+package calculator.arithmetic;
 
 public enum OperatorType {
     PLUS('+'), MINUS('-'), MULTIPLY('*'), DIVIDE('/');

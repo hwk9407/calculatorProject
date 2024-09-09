@@ -1,5 +1,8 @@
 package calculator;
 
+import calculator.exception.DivisionByZeroException;
+import calculator.exception.InvalidOperatorException;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,7 +10,9 @@ public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Calculator cal = new Calculator();
+
+//        Calculator cal = new Calculator();
+        ArithmeticCalculator aCal;
 
         // 2개의 양의 정수 0포함 입력 받기
         while (true) {
@@ -48,8 +53,18 @@ public class App {
             System.out.println("사칙연산 기호를 입력해주세요.");
             char operator = sc.next().charAt(0);
 
+            /*// 기존 calculator객체 사용 연산자
             double result = cal.calculate(a, b, operator);
-            System.out.println();
+
+            System.out.println();*/
+
+            try {
+                aCal = new ArithmeticCalculator(operator);
+                double result2 = aCal.calculate(a, b);
+                System.out.println("연산2 결과 : " + result2);
+            } catch (InvalidOperatorException | DivisionByZeroException e) {
+                System.out.println(e.getMessage());
+            }
 
 //            System.out.println(cal.resultHistory); private 접근 제어자로 막았기 때문에 사용 불가. getter로 접근 해야함!
 
@@ -75,6 +90,8 @@ public class App {
             String answer = sc.nextLine();
 
             if (answer.equalsIgnoreCase("exit")) {
+                /*// 기존 calculator객체 사용
+                if (cal.getAllData().isEmpty()) return;
                 System.out.println("모든 저장 결과값 : " + cal.getAllData());
                 System.out.println("처음으로 저장된 결과값 출력 : " + cal.getData(0));
 
@@ -86,6 +103,7 @@ public class App {
 
                 cal.removeFirstData();
                 System.out.println("removeFirstResult 메서드 호출 후 저장 값 출력 : " + cal.getAllData());
+                */
                 return;
             }
         }
