@@ -5,10 +5,13 @@ import calculator.exception.DivisionByZeroException;
 import calculator.exception.InvalidOperatorException;
 
 public class ArithmeticCalculator {
-    private BasicCalculator calculator;
+    public BasicCalculator calculator;
 
     // 생성자
-    public ArithmeticCalculator(char opType) throws InvalidOperatorException {
+    public ArithmeticCalculator() {
+        BasicCalculator.initializeResult();
+    };
+    public void setOperator(char opType) throws InvalidOperatorException {
         OperatorType type = OperatorType.getOperatorType(opType);
         if (type != null) {
             switch (type) {

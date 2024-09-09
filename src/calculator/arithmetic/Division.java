@@ -9,6 +9,7 @@ public class Division extends BasicCalculator {
         if (b == 0) {
             throw new DivisionByZeroException();
         }
+        addData(a / b);
         return a / b;
     }
 }

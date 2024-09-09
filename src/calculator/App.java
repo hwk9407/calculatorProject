@@ -1,5 +1,6 @@
 package calculator;
 
+import calculator.arithmetic.BasicCalculator;
 import calculator.exception.DivisionByZeroException;
 import calculator.exception.InvalidOperatorException;
 
@@ -10,9 +11,8 @@ public class App {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
 //        Calculator cal = new Calculator();
-        ArithmeticCalculator aCal;
+        ArithmeticCalculator aCal = new ArithmeticCalculator();
 
         // 2개의 양의 정수 0포함 입력 받기
         while (true) {
@@ -59,7 +59,7 @@ public class App {
             System.out.println();*/
 
             try {
-                aCal = new ArithmeticCalculator(operator);
+                aCal.setOperator(operator);
                 double result2 = aCal.calculate(a, b);
                 System.out.println("연산2 결과 : " + result2);
             } catch (InvalidOperatorException | DivisionByZeroException e) {
@@ -90,8 +90,11 @@ public class App {
             String answer = sc.nextLine();
 
             if (answer.equalsIgnoreCase("exit")) {
-                /*// 기존 calculator객체 사용
+                if (aCal.calculator == null) return;
+                BasicCalculator cal = aCal.calculator;
+
                 if (cal.getAllData().isEmpty()) return;
+
                 System.out.println("모든 저장 결과값 : " + cal.getAllData());
                 System.out.println("처음으로 저장된 결과값 출력 : " + cal.getData(0));
 
@@ -103,7 +106,6 @@ public class App {
 
                 cal.removeFirstData();
                 System.out.println("removeFirstResult 메서드 호출 후 저장 값 출력 : " + cal.getAllData());
-                */
                 return;
             }
         }

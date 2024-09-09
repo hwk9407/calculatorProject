@@ -5,10 +5,10 @@ import calculator.exception.DivisionByZeroException;
 import java.util.ArrayList;
 
 public abstract class BasicCalculator {
-    ArrayList<Double> resultHistory;
-    private double firstNum, secondNum;
+    private static ArrayList<Double> resultHistory;
 
-    public BasicCalculator() {
+
+    public static void initializeResult() {
         resultHistory = new ArrayList<>();
     }
     public abstract double operate(double a, double b) throws DivisionByZeroException;
@@ -19,12 +19,14 @@ public abstract class BasicCalculator {
     }
 
     public ArrayList<Double> getAllData() {
-        return this.resultHistory;
+        return resultHistory;
     }
 
     public void setData(int index, double value) {
         resultHistory.set(index, value);
     }
+
+    public void addData(double value) { resultHistory.add(value); }
 
     public void removeFirstData() {
         resultHistory.removeFirst();
