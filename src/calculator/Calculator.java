@@ -7,6 +7,13 @@ import java.util.ArrayList;
 // 결과값 반환 메서드 구현
 // 연산 결과를 저장하는 컬렉션 타입 필드를 가진 Calculator 클래스를 생성
 public class Calculator {
+    /**
+     * Calculator.java
+     * 클래스를 분리하여 사칙연산을 수행하여 결과를 출력 후 반환하는 Lv 2. 계산기.
+     *
+     * 연산 결과를 저장하는 컬렉션 타입 필드를 생성하고 관리함
+     * 접근제어자 private 로 직접접근을 제한하고, getter setter 메서드로 간접접근하게함(캡슐화)
+     */
     private ArrayList<Double> resultHistory;
     
     // 생성자. 필드 초기화

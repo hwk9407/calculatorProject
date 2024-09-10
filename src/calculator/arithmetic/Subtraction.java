@@ -3,7 +3,10 @@ package calculator.arithmetic;
 import calculator.storage.SaveCalculator;
 
 public class Subtraction extends BasicCalculator {
-
+    /**
+     * arithmetic/Subtraction.java
+     * 뺄셈 연산 클래스
+     */
     public Subtraction(SaveCalculator resultHistory) {
         super(resultHistory);
     }

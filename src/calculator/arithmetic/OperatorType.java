@@ -1,6 +1,10 @@
 package calculator.arithmetic;
 
 public enum OperatorType {
+    /**
+     * arithmetic/OperatorType.java
+     * 연산 기호를 정의하는 enum 클래스
+     */
     PLUS('+'), MINUS('-'), MULTIPLY('*'), DIVIDE('/');
     private final char symbol;
 

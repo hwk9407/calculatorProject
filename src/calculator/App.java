@@ -9,6 +9,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
+    /**
+     * App.java
+     * main 메서드를 갖고있는 프로그램을 시작하는 클래스
+     * 첫번째, 두번째 숫자형(음수, 실수 포함) 데이터를 입력받는다. (제대로 입력할때까지 반복)
+     * 세번째는 연산기호를 입력받는다. 지원하는 연산기호는 arithmetic/OperatorType.java의 enum클래스가 정의한다.
+     * exit을 입력하면 종료. 그외 입력은 계산을 반복
+     *
+     * 종료 후 숫자 입력을 하나 더 받아 저장된 연산 결과들 중 입력받은 값보다 큰 결과값 들을 출력
+     */
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
