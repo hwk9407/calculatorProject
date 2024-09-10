@@ -2,6 +2,7 @@ package calculator;
 
 import calculator.arithmetic.BasicCalculator;
 import calculator.exception.DivisionByZeroException;
+import calculator.exception.InfinityValueException;
 import calculator.exception.InvalidOperatorException;
 
 import java.util.InputMismatchException;
@@ -53,8 +54,8 @@ public class App {
             try {
                 aCal.setOperator(operator);
                 double result2 = aCal.calculate(a, b);
-                System.out.println("연산2 결과 : " + result2);
-            } catch (InvalidOperatorException | DivisionByZeroException e) {
+                System.out.println("연산 결과 : " + result2);
+            } catch (InvalidOperatorException | DivisionByZeroException | InfinityValueException e) {
                 System.out.println(e.getMessage());
             }
 

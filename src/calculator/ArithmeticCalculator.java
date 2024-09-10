@@ -2,6 +2,7 @@ package calculator;
 
 import calculator.arithmetic.*;
 import calculator.exception.DivisionByZeroException;
+import calculator.exception.InfinityValueException;
 import calculator.exception.InvalidOperatorException;
 import calculator.storage.SaveCalculator;
 
@@ -40,11 +41,13 @@ public class ArithmeticCalculator {
     }
 
     // 제네릭 메서드로 오버로딩
-    public <T extends Number> double calculate(T a, T b) throws DivisionByZeroException {
+    public <T extends Number> double calculate(T a, T b) throws DivisionByZeroException, InfinityValueException {
         double firstNum = Double.parseDouble(a.toString());
         double secondNum = Double.parseDouble(b.toString());
+        double result = calculator.operate(firstNum, secondNum);
+        if (Double.isInfinite(result)) throw new InfinityValueException();
 
-        return calculator.operate(firstNum, secondNum);
+        return result;
     }
 
     // 저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력하는 메서드
