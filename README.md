@@ -1,5 +1,6 @@
 # calculatorProject
 - 계산기 만들기 개인 과제 가이드 노션 링크 : https://teamsparta.notion.site/Spring-3-CH-2-31009cdb764445648c6853ffde3a5219
+- 계산기 만들던 중 트러블 슈팅 링크 : https://velog.io/@hwk__/2024.09.09-TIL-25#-%EA%B3%84%EC%82%B0%EA%B8%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EA%B0%9C%EC%9D%B8%EA%B3%BC%EC%A0%9C---%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85
 
 ## 4️⃣ **필수 기능 가이드**
 
